@@ -1,17 +1,15 @@
-
-build:
-  docker:
-    frontend: ./install/docker/frontend/Dockerfile
+--- 
+build: 
+  config: 
+    backend: 
+      ports: 
+        - "5000:5000"
+    frontend: 
+      ports: 
+        - "4200:4200"
+    redis: 
+      ports: "-\"6379:6379\""
+  docker: 
     backend: ./install/docker/backend/Dockerfile
+    frontend: ./install/docker/frontend/Dockerfile
     redis: redis
-
-  config:
-    frontend:
-      ports:
-          - "4200:4200"
-    backend:
-      ports:
-          - "5000:5000"
-    redis:
-      ports:
-          -"6379:6379"
